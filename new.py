@@ -1,11 +1,13 @@
+# This code is for WINDOWS ONLY
+
 import os
 import pyperclip
 # add the formula and functionality of slope
 
 
 def func():
-    for i in all_func:
-        print(i)
+    for i, j in enumerate(all_func):
+        print(i+1, j)
 
 # def lists(): #this function is not ready yet and needs to be amended.Everything else seems fine and is working fine
 #     # l = input("JUST PRESS ENTER")   Keep Thinking.Make a CLI and do shit and be successful
@@ -24,6 +26,17 @@ def func():
 #         for i in t:
 #             print(i)
 # lists()
+
+
+fun = {"slope": "calculates the slope of 4 values entered".capitalize(),
+       "area": "finds the area of rectangle or square".capitalize(),
+       "div": "Divides the first value entered by the second value entered",
+       "mul": "Multiplies 2 numbers entered",
+       "sub": "Subtracts the first number from the second number",
+       "add": "Add two numbers",
+       "folder": "Creates a folder in the directory specified",
+       "remove": "Removes a folder or file in the directory specified",
+       }
 
 
 def slope():
