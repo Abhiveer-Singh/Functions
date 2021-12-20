@@ -1,5 +1,6 @@
 import os
 import pyperclip
+# add the formula and functionality of slope
 
 
 def func():
@@ -23,6 +24,16 @@ def func():
 #         for i in t:
 #             print(i)
 # lists()
+
+
+def slope():
+    y2 = float(input("Enter y2: "))
+    y1 = float(input("Enter y1: "))
+    x2 = float(input("Enter x2: "))
+    x1 = float(input("Enter x1: "))
+    one = y2 - y1
+    two = x2 - x1
+    print(one/two)
 
 
 def area():
@@ -118,6 +129,8 @@ while entry != "exit":
         # print("The following are the functions You can perform")
         # print(all_func)
         func()
+    elif entry == "slope".casefold():
+        slope()
     elif entry == "file".casefold():
         print("The only ones allowed are:\n1.Documents\n2.Downloads\n3.Desktop\nIn which directory is Your file in ?")
         fil = input("Type Here: ")
