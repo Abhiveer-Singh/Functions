@@ -2,7 +2,6 @@
 
 import os
 import pyperclip
-# add the formula and functionality of slope
 
 
 def func():
@@ -165,6 +164,3 @@ while entry != "exit":
     else:
         print(f"could not understand what {entry} meant.Try something from the list below")
         func()
-    # for i in t:
-    #     print(t)
-    # entry = input(">")
