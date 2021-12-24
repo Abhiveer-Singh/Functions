@@ -1,33 +1,12 @@
 # This code is for WINDOWS ONLY
-
+import random
 import os
 import pyperclip
 
-
-def func():
-    for i, j in enumerate(all_func):
-        print(i+1, j)
-
-
-# def lists(): #this function is not ready yet and needs to be amended.Everything else seems fine and is working fine
-#     # l = input("JUST PRESS ENTER")   Keep Thinking.Make a CLI and do shit and be successful
-#     # while l != "exit":
-#     #     l = input(">")
-#     #     t = []
-#     #     t.append(l)
-#     #     # t.remove("exit")
-#     #     for i in t:
-#     #         print(i)
-#     me = input("(don't)type here")
-#     while me != "exit":
-#         me = input(">")
-#         t = []
-#         t.append(me)
-#         for i in t:
-#             print(i)
-# lists()
-
 # sum sub mul div area folder remove paste copy all slope file
+
+
+
 fun = {
     "sum": "Adds two numbers entered",
     "sub": "Subtracts the first number from the second number",
@@ -44,6 +23,22 @@ fun = {
     }
 
 
+def func():
+    for a, b in enumerate(all_func):
+        print(a + 1, b)
+
+
+def game():
+    a = int(input("Enter a range (first number): "))
+    b = int(input("Enter a range (second number): "))
+    me = random.randint(a, b)
+    enter = int(input("Guess the number: "))
+    while enter != me:
+        enter = int(input("Guess the number: "))
+        if enter == me:
+            print("Congratulations! You got a number")
+
+
 def slope():
     y2 = float(input("Enter y2: "))
     y1 = float(input("Enter y1: "))
@@ -52,6 +47,74 @@ def slope():
     one = y2 - y1
     two = x2 - x1
     print(one/two)
+
+
+def den():
+    mass = float(input("Type mas in grams: "))
+    volu = float(input("Type volume in metre cube: "))
+    print(f"Density is {mass*volu} ")
+
+
+def vel():
+    dis = float(input("Type the distance in metres: "))
+    tim = float(input("Type time in second: "))
+    print("Velocity is {} m per second".format(dis/tim))
+
+
+def acc():
+    velocity = float(input("Type the velocity in metre per second: "))
+    time = float(input("Type the time in seconds: "))
+
+
+def vol():
+    side = int(input("Type the measurement of one side here: "))
+    print(f"The volume is {pow(side, 3)}")
+
+
+def force():
+    ma = float(input("Type the mass in grams "))
+    accelerate = float(input("Type acceleration in metre per second square: "))
+    print(f"Force = {ma * accelerate} Newton")
+
+
+def work():
+    forc = float(input("Type the force in Newton: "))
+    displace = float(input("Type the displacement in metre: "))
+    print(f"Work done or energy is equal to {forc * displace} Joule")
+
+
+def mom():
+    mass = float(input("Enter mass in kilograms: "))
+    velo = float(input("Enter velocity in metre per second: "))
+    print(f"Momentum is equal to {mass * velo} N s")
+
+
+def torque():
+    fo = float(input("Type force in N: "))
+    dista = float(input("Type distance in metre: "))
+    print(f"Torque or moment of force is equal to {fo *dista} N m")
+
+
+def power():
+    wor = float(input("Type work in Joule: "))
+    tim = float(input("enter time in seconds: "))
+    print(f"Power is equal to {wor/tim} J per second or Watt")
+
+
+def pressure():
+    fo = float(input("Type force in N: "))
+    are = float(input("Type area in metre square: "))
+
+
+def frequency():
+    period = float(input("Type time period in seconds"))
+    print(f"Frequency is equal to {1/period} Hertz or second raised to -1")
+
+
+def charge():
+    current = float(input("Type current in ampere: "))
+    time = float(input("Type time in second: "))
+    print(f"Electric charge is equal to {current*time} A s or C")
 
 
 def area():
@@ -161,6 +224,26 @@ while entry != "exit":
         fil = input("Type Here: ")
         place = input("Type the name of the file: ")
         os.mkdir(f"C:/Users/abhiv/{fil}/{place}")
+    elif entry == "game".casefold():
+        pass # random number game (That one)
+    elif entry == "den".casefold():
+        den()
+    elif entry == "vol".casefold() or "speed".casefold():
+        vol()
+    elif entry == "force".casefold():
+        force()
+    elif entry == "work".casefold():
+        work()
+    elif entry == "mom".casefold():
+        mom()
+    elif entry == "torque".casefold():
+        torque()
+    elif entry == "power".casefold():
+        power()
+    elif entry == "pressure".casefold():
+        pressure()
+    elif entry == "charge".casefold():
+        charge()
     else:
         print(f"could not understand what {entry} meant.Try something from the list below")
         func()
