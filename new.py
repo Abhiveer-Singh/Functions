@@ -2,9 +2,10 @@
 import random
 import os
 import pyperclip
+import webbrowser
 
 # sum sub mul div area folder remove paste copy all slope file
-
+# add functionality to enter https links also
 
 
 fun = {
@@ -21,6 +22,11 @@ fun = {
     "slope": "calculates the slope of 4 values entered".capitalize(),
     "file": "Makes a new file in the specified directory"
     }
+
+
+def link():
+    me = input("Enter url of website")
+    webbrowser.open("https://{}".format(me))
 
 
 def func():
@@ -244,6 +250,8 @@ while entry != "exit":
         pressure()
     elif entry == "charge".casefold():
         charge()
+    elif entry == "link".casefold():
+        link()
     else:
         print(f"could not understand what {entry} meant.Try something from the list below")
         func()
