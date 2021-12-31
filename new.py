@@ -3,10 +3,15 @@ import random
 import os
 import pyperclip
 import webbrowser
-
+import calendar
+from colorama import Fore
+from colorama import Style
+from colorama import Back
 # sum sub mul div area folder remove paste copy all slope file
 # add functionality to enter https links also
-
+# make a functionality to make and store files and open up files in the device itself
+# this will be very cool
+# function to check if next year is leap year or not
 
 fun = {
     "sum": "Adds two numbers entered",
@@ -20,8 +25,30 @@ fun = {
     "copy": "Copies the text typed",
     "all": "Displays all the commands that can be typed",
     "slope": "calculates the slope of 4 values entered".capitalize(),
-    "file": "Makes a new file in the specified directory"
+    "file": "Makes a new file in the specified directory",
+    "link": "Opens the entered link in your default browser",
+    "game": "Starts a game that is a surprise for You !!",
+    "den": "Finds the density in grams per metre cube",
+    "vel": "Finds the velocity in metre per second",
+    "acc": "Finds the acceleration from the given values",
+    "vol": "Finds the volume",
+    "force": "Finds the force from the given mass and acceleration",
+    "work": "Finds work done or energy",
+    "leap": "Checks if a year is a leap year or not(prints `True` if leap year and `False` if not)"
     }
+
+
+def leap():
+    leap = int(input("Enter year to be checked: "))
+    print(calendar.isleap(leap))
+
+
+def write():
+    name = input("What do You want to name Your file?: ")
+    play = input("Which Directory do You want to store Your file in ?(Desktop, Documents or Downloads?): ")
+    con = input("What do you want to type in the file?: ")
+    with open(f'C://Users/abhiv/{play}/{name}') as file:
+        file.write(con)
 
 
 def link():
@@ -30,8 +57,8 @@ def link():
 
 
 def func():
-    for a, b in enumerate(all_func):
-        print(a + 1, b)
+    for a, b in enumerate(fun):
+        print(a, b)
 
 
 def game():
@@ -42,7 +69,7 @@ def game():
     while enter != me:
         enter = int(input("Guess the number: "))
         if enter == me:
-            print("Congratulations! You got a number")
+            print("Congratulations! You got the right number")
 
 
 def slope():
@@ -58,7 +85,7 @@ def slope():
 def den():
     mass = float(input("Type mas in grams: "))
     volu = float(input("Type volume in metre cube: "))
-    print(f"Density is {mass*volu} ")
+    print(f"Density is {mass/volu} ")
 
 
 def vel():
@@ -78,7 +105,7 @@ def vol():
 
 
 def force():
-    ma = float(input("Type the mass in grams "))
+    ma = float(input("Type the mass in grams: "))
     accelerate = float(input("Type acceleration in metre per second square: "))
     print(f"Force = {ma * accelerate} Newton")
 
@@ -110,6 +137,7 @@ def power():
 def pressure():
     fo = float(input("Type force in N: "))
     are = float(input("Type area in metre square: "))
+    print(f"The pressure is {fo/are} N per metre square")
 
 
 def frequency():
@@ -225,17 +253,19 @@ while entry != "exit":
         func()
     elif entry == "slope".casefold():
         slope()
-    elif entry == "file".casefold():
+    elif entry == "folder".casefold():
         print("The only ones allowed are:\n1.Documents\n2.Downloads\n3.Desktop\nIn which directory is Your file in ?")
         fil = input("Type Here: ")
-        place = input("Type the name of the file: ")
+        place = input("What would You like to name Your folder?: ")
         os.mkdir(f"C:/Users/abhiv/{fil}/{place}")
     elif entry == "game".casefold():
-        pass # random number game (That one)
+        game()
     elif entry == "den".casefold():
         den()
-    elif entry == "vol".casefold() or "speed".casefold():
-        vol()
+    elif entry == "vel".casefold():
+        vel()
+    elif entry == "speed":
+        vel()
     elif entry == "force".casefold():
         force()
     elif entry == "work".casefold():
@@ -252,6 +282,12 @@ while entry != "exit":
         charge()
     elif entry == "link".casefold():
         link()
+    elif entry == "frequency".casefold():
+        frequency()
+    elif entry == "file":
+        write()
+    elif entry == "leap":
+        leap()
     else:
         print(f"could not understand what {entry} meant.Try something from the list below")
         func()
