@@ -4,9 +4,6 @@ import os
 import pyperclip
 import webbrowser
 import calendar
-from colorama import Fore
-from colorama import Style
-from colorama import Back
 # sum sub mul div area folder remove paste copy all slope file
 # add functionality to enter https links also
 # make a functionality to make and store files and open up files in the device itself
@@ -34,21 +31,36 @@ fun = {
     "vol": "Finds the volume",
     "force": "Finds the force from the given mass and acceleration",
     "work": "Finds work done or energy",
-    "leap": "Checks if a year is a leap year or not(prints `True` if leap year and `False` if not)"
+    "leap": "Checks if a year is a leap year or not(prints `True` if leap year and `False` if not)",
+    "write": "Creates a file and writes it if the user wants to"
     }
+
+
+def write():
+    name = input("What do You want to name your file: ")
+    dir = input(f"Which directory do you want to create {name} in ?\n1.Documents\n2.Downloads\n3Desktop\n: ")
+    path = f"C:/Users/abhiv/{dir}/{name}"
+    file = open(path, 'w')
+    enter = input("Do You want to write something to the file?(Yes or No): ")
+    if enter == "no".casefold():
+        pass
+    elif enter == "yes".casefold():
+        con = input("Type the content of the file here: ")
+        file.write(con)
+    file.close()
 
 
 def leap():
     leap = int(input("Enter year to be checked: "))
     print(calendar.isleap(leap))
 
-
-def write():
-    name = input("What do You want to name Your file?: ")
-    play = input("Which Directory do You want to store Your file in ?(Desktop, Documents or Downloads?): ")
-    con = input("What do you want to type in the file?: ")
-    with open(f'C://Users/abhiv/{play}/{name}') as file:
-        file.write(con)
+#
+# def write():
+#     name = input("What do You want to name Your file?: ")
+#     play = input("Which Directory do You want to store Your file in ?(Desktop, Documents or Downloads?): ")
+#     con = input("What do you want to type in the file?: ")
+#     with open(f'C://Users/abhiv/{play}/{name}') as file:
+#         file.write(con)
 
 
 def link():
@@ -288,6 +300,8 @@ while entry != "exit":
         write()
     elif entry == "leap":
         leap()
+    elif entry == "write":
+        write()
     else:
         print(f"could not understand what {entry} meant.Try something from the list below")
         func()
