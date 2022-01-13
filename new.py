@@ -4,6 +4,7 @@ import os
 import pyperclip
 import webbrowser
 import calendar
+import time
 # sum sub mul div area folder remove paste copy all slope file
 # add functionality to enter https links also
 # make a functionality to make and store files and open up files in the device itself
@@ -32,8 +33,15 @@ fun = {
     "force": "Finds the force from the given mass and acceleration",
     "work": "Finds work done or energy",
     "leap": "Checks if a year is a leap year or not(prints `True` if leap year and `False` if not)",
-    "write": "Creates a file and writes it if the user wants to"
+    "write": "Creates a file and writes it if the user wants to",
+    "timer": "Timer for how many ever seconds the user chooses",
+    "word": "Counts the amount of words typed",
     }
+
+
+def timer():
+    secs = int(input("Enter in Seconds: "))
+    time.sleep(secs)
 
 
 def write():
@@ -54,13 +62,11 @@ def leap():
     leap = int(input("Enter year to be checked: "))
     print(calendar.isleap(leap))
 
-#
-# def write():
-#     name = input("What do You want to name Your file?: ")
-#     play = input("Which Directory do You want to store Your file in ?(Desktop, Documents or Downloads?): ")
-#     con = input("What do you want to type in the file?: ")
-#     with open(f'C://Users/abhiv/{play}/{name}') as file:
-#         file.write(con)
+
+def word():
+    print("Enter the words to count below")
+    words = input(": ")
+    print(len(words.split()))
 
 
 def link():
@@ -302,6 +308,10 @@ while entry != "exit":
         leap()
     elif entry == "write":
         write()
+    elif entry == "timer":
+        timer()
+    elif entry == "word":
+        word()
     else:
         print(f"could not understand what {entry} meant.Try something from the list below")
         func()
