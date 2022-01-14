@@ -5,6 +5,7 @@ import pyperclip
 import webbrowser
 import calendar
 import time
+from datetime import date
 # sum sub mul div area folder remove paste copy all slope file
 # add functionality to enter https links also
 # make a functionality to make and store files and open up files in the device itself
@@ -36,7 +37,13 @@ fun = {
     "write": "Creates a file and writes it if the user wants to",
     "timer": "Timer for how many ever seconds the user chooses",
     "word": "Counts the amount of words typed",
+    "time": "Prints the date in the format: YYYY|MM|DD"
     }
+
+
+def date():
+    today = date.today()
+    print("Today's Date: {}".format(today))
 
 
 def timer():
@@ -312,6 +319,8 @@ while entry != "exit":
         timer()
     elif entry == "word":
         word()
+    elif entry == "date":
+        date()
     else:
         print(f"could not understand what {entry} meant.Try something from the list below")
         func()
