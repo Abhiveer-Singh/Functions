@@ -37,13 +37,16 @@ fun = {
     "write": "Creates a file and writes it if the user wants to",
     "timer": "Timer for how many ever seconds the user chooses",
     "word": "Counts the amount of words typed",
-    "time": "Prints the date in the format: YYYY|MM|DD"
+    "today": "Prints the date in the format: YYYY|MM|DD"
     }
 
 
-def date():
-    today = date.today()
-    print("Today's Date: {}".format(today))
+def spotify():
+    webbrowser.open("open.spotify.com")
+
+
+def today():
+    print(f"The Date Today is: {date.today()}")
 
 
 def timer():
@@ -319,8 +322,10 @@ while entry != "exit":
         timer()
     elif entry == "word":
         word()
-    elif entry == "date":
-        date()
+    elif entry == "today":
+        today()
+    elif entry == 'spotify':
+        spotify()
     else:
         print(f"could not understand what {entry} meant.Try something from the list below")
         func()
