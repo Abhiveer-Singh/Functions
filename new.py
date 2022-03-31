@@ -1,4 +1,5 @@
 # This code is for WINDOWS ONLY
+# link to favourite musician's youtube channel[or spotify]
 import random
 import os
 import pyperclip
@@ -44,7 +45,11 @@ all_functions = {
     "os": "Displays all functions related to your operating system(windows)",
     "internet": "Displays all functions related to the internet",
     "time": "Displays all time related functions",
+    "user": "takes you to your reddit username homepage in your default browser",
+    "subred": "takes you to a reddit subreddit/community that you desire",
+    "read": "Reads and prints out the contents of the file"
     }
+
 
 maths = {
     "sum": "Adds two numbers entered",
@@ -54,6 +59,8 @@ maths = {
     "area": "finds the area of rectangle or square(Same as `mul`)".capitalize(),
     "mathall": "Shows all mathematical functions"
 }
+
+
 physics = {
     "slope": "calculates the slope of 4 values entered".capitalize(),
     "den": "Finds the density in grams per metre cube",
@@ -89,8 +96,27 @@ times = {
 everything = [maths, physics, fun, oss, internet, times]
 
 
+def read():
+    fill = input("Type the name of the file here: ")
+    loc = input("Where is your file in ?\n1.Desktop \n2.Documents \n3.Downloads\n: ")
+    path = f"C:/Users/abhiv/{loc}/{fill}"
+    x = open(path, newline='')
+    print(x.read())
+
+
+def subred():
+    red = input("Type the subreddit/community here: ")
+    webbrowser.open_new_tab(f"https://www.reddit/r/{red}")
+
+
+def user():
+    it = input("Type your Reddit Username: ")
+    webbrowser.open_new_tab(f"https://www.reddit.com/u/{it}")
+
+
 def favourites():
     favourite = []
+    print("Type Your Favourite fi=unctions or the functions that you usually use here: ")
 
 
 def account():
@@ -168,7 +194,7 @@ def word():
 
 
 def link():
-    me = input("Enter url of website")
+    me = input("Enter url of website(type from `www`: ")
     webbrowser.open("https://{}".format(me))
 
 
@@ -345,6 +371,11 @@ def folder():
 bash = []
 
 print("Welcome")
+print("The following functions are present right now")
+time.sleep(1.1)
+for b in (all_functions.keys()):
+    print(b, all_functions[b], sep=": ")
+
 
 entry = input("PRESS ENTER")
 while entry != "exit":
@@ -354,8 +385,6 @@ while entry != "exit":
         break
     elif entry == "sum".casefold():
         add()
-        # all_func.append("sum")
-        # print("Addition")
     elif entry == "sub".casefold():
         sub()
     elif entry == "mul".casefold():
@@ -451,6 +480,12 @@ while entry != "exit":
     elif entry == "time":
         for t in times.keys():
             print(t, times[t], sep=": ")
+    elif entry == "user":
+        user()
+    elif entry == "subred":
+        subred()
+    elif entry == "read":
+        read()
     else:
         print(f"could not understand what {entry} meant.Try something from the list below")
         func()
