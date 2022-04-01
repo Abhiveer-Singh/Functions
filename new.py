@@ -1,5 +1,3 @@
-# This code is for WINDOWS ONLY
-# link to favourite musician's youtube channel[or spotify]
 import random
 import os
 import pyperclip
@@ -199,8 +197,8 @@ def link():
 
 
 def func():
-    for a, b in (all_functions.items()):
-        print(a, ": ", b)
+    for x, a, b in (all_functions.items()):
+        print(x+1, a, ": ", b)
 
 
 def game():
