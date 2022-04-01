@@ -1,3 +1,5 @@
+# This code is for WINDOWS ONLY
+# link to favourite musician's youtube channel[or spotify]
 import random
 import os
 import pyperclip
